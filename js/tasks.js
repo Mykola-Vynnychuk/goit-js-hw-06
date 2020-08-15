@@ -59,7 +59,7 @@ console.log(calculateTotalBalance(users)); // 20916
 console.groupEnd();
 
 const getUsersWithFriend = (users, friendName) => {
-  return users.filter(({ friends }) => friends.includes(friendName));
+  return users.filter(({ friends }) => friends.includes(friendName)).map(user => user.name);
 };
 
 console.group('Task-08');
@@ -69,7 +69,7 @@ console.groupEnd();
 
 const getNamesSortedByFriendsCount = users => {
   return [...users]
-    .sort((a, b) => a.friends.length - b.friends.length)
+    .sort((prev, next) => prev.friends.length - next.friends.length)
     .map(user => user.name);
 };
 
